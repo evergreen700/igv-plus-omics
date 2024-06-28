@@ -412,6 +412,7 @@ public class Main {
         private String dataServerURL = null;
         private String genomeServerURL = null;
         private String indexFile = null;
+        private String expressionFile = null;
         private String coverageFile = null;
         private String name = null;
         public String igvDirectory = null;
@@ -436,6 +437,7 @@ public class Main {
             CmdLineParser.Option dataServerOption = parser.addStringOption('d', "dataServerURL");
             CmdLineParser.Option genomeServerOption = parser.addStringOption('u', "genomeServerURL");
             CmdLineParser.Option indexFileOption = parser.addStringOption('i', "indexFile");
+            CmdLineParser.Option expressionFileOption = parser.addStringOption('e', "expressionFile");
             CmdLineParser.Option coverageFileOption = parser.addStringOption('c', "coverageFile");
             CmdLineParser.Option nameOption = parser.addStringOption('n', "name");
             CmdLineParser.Option locusOption = parser.addStringOption('l', "locus");
@@ -477,6 +479,11 @@ public class Main {
             String igvDirectoryPath = (String) parser.getOptionValue(igvDirectoryOption);
             if (igvDirectoryPath != null) {
                 igvDirectory = maybeDecodePath(igvDirectoryPath);
+            }
+
+            String expressionFilePath = (String) parser.getOptionValue(expressionFileOption);
+            if (expressionFilePath != null) {
+                expressionFile = maybeDecodePath(expressionFilePath);
             }
 
             String[] nonOptionArgs = parser.getRemainingArgs();
@@ -645,6 +652,7 @@ public class Main {
             System.out.println("--dataServerURL, -d  Path or url to a data server registry file");
             System.out.println("--genomeServerURL, -u  Path or url to a genome server registry file");
             System.out.println("--indexFile, -i  Index file or comma delimited list of index files corresponding to data files");
+            System.out.println("--expressionFile, -e Comma delimited file containing RNA expression values corresponding to gene IDs");
             System.out.println("--coverageFile, -c  Coverage file or comma delimited list of coverage files corresponding to data files");
             System.out.println("--name, -n  Name or comma-delimited list of names for tracks corresponding to data files");
             System.out.println("--locus, -l  Initial locus");

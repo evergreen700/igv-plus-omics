@@ -251,7 +251,7 @@ public class MainPanel extends JPanel implements Paintable {
 
         centerSplitPane.add(dataTrackScrollPane, JSplitPane.TOP);
         if (!PreferencesManager.getPreferences().getAsBoolean(SHOW_SINGLE_TRACK_PANE_KEY)) {
-            centerSplitPane.add(featureTrackScrollPane, JSplitPane.BOTTOM);
+            centerSplitPane.add(featureTrackScrollPane, JSplitPane.BOTTOM);/**/
         }
 
         add(centerSplitPane, BorderLayout.CENTER);
